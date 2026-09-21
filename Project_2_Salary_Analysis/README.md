@@ -19,7 +19,8 @@
     - `data_job_salary`: Clean table for salary information
     - `data_job_skills`: Unpivoted the job skills columns so each skill is in its own row (from wide to long format)
 
-      <img width="361" height="506" alt="12_Unpivot_Columns" src="https://github.com/user-attachments/assets/83ef5dd5-ba07-4d5f-8b79-5419d499f1e4" /> <img width="350" height="524" alt="11_data_jobs_skills" src="https://github.com/user-attachments/assets/c2e14247-40f1-4b7d-b1f1-ac5b12ca69ec" />
+      <img width="361" height="506" alt="12_Unpivot_Columns" src="https://github.com/user-attachments/assets/83ef5dd5-ba07-4d5f-8b79-5419d499f1e4" /> <img width="349" height="507" alt="11_data_jobs_skills" src="https://github.com/user-attachments/assets/1b890e19-b84d-4139-abd6-d93fc49ee138" />
+
 
 4.  **Data Modeling:** Created a relationship between two tables using `job_id` as the key.
    
