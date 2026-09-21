@@ -2,24 +2,29 @@
 
 > Final Advanced Project - Excel for Data Analytics by Luke Barousse
 
-### 🔗 Live File: 
-
+### 🔗 Live File: [View Excel Workbook](2_Salary_Analysis.xlsx)
 
 ---
 
 ### Chapter 1: Introduction
 
-**Objective:** To analyze the relationship between data job salaries and required skills. Is there a skill that pays more?
+**Objective:** To analyze the relationship between data job salaries and required skills. 
 
-**The Problem:** The raw data was messy. One file had salary info, another file had all skills in one row (Python, SQL, Excel... in many columns). I needed to clean it before analysis.
+**The Problem:** The raw data was messy. I needed to clean it before analysis.
 
 **My Process - Data Cleaning (Power Query):**
 1.  Connected to Excel source and launched Power Query Editor
-2.  **Cleaned Data:** Changed column types (salary to currency), trimmed whitespace, cleaned text, reordered columns
+2.  **Cleaned Data:** Changed column types (salary to currency, job posted date to date), trimmed whitespace, cleaned text, reordered columns
 3.  **Created Two Queries:**
     - `data_job_salary`: Clean table for salary information
     - `data_job_skills`: Unpivoted the job skills columns so each skill is in its own row (from wide to long format)
-4.  **Data Modeling:** Created a relationship between two tables using `job_id` as the key
+
+      <img width="361" height="506" alt="12_Unpivot_Columns" src="https://github.com/user-attachments/assets/83ef5dd5-ba07-4d5f-8b79-5419d499f1e4" /> <img width="350" height="524" alt="11_data_jobs_skills" src="https://github.com/user-attachments/assets/c2e14247-40f1-4b7d-b1f1-ac5b12ca69ec" />
+
+4.  **Data Modeling:** Created a relationship between two tables using `job_id` as the key.
+   
+       <img width="540" height="377" alt="15_Relationship" src="https://github.com/user-attachments/assets/ae2b429e-a825-4f49-bb2f-ea3cc5c30963" />
+
 5.  Loaded data to Data Model (not just to sheet) to use DAX and Pivot Tables
 
 **Tools Used:** Excel Power Query, Data Model, Pivot Table, DAX, Relationship
