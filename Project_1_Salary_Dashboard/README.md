@@ -2,7 +2,7 @@
 
 > Final Project for Excel for Data Analytics Course by Luke Barousse
 
-### 🔗 Live Dashboard: [View Excel File](./Data_Science_Salary_Calculator.xlsx)
+### 🔗 Live Dashboard: [View Excel File](1_Salary_Dashboard.xlsx)
 <img width="1105" height="412" alt="1_Salary_Dashboard" src="https://github.com/user-attachments/assets/50d8278e-662b-4f52-8faa-f506d8053672" />
 
 ---
