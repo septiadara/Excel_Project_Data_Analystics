@@ -83,7 +83,7 @@ This is a fully dynamic dashboard. When you select a value, everything updates.
 ### Chapter 3: Conclusion
 
 **Challenges I Solved:**
-- Handling blank salary fields with IFERROR
+- Utilizing data from Excel to allow users make informed decisions
 - Making the Bing Map work without Power BI
 - Syncing 3 different charts to 3 dropdowns
 
