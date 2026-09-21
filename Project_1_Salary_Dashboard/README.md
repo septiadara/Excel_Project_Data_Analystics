@@ -13,9 +13,9 @@
 
 **Dataset:** Data Science Salaries 2023 - 3,000+ job postings from Ladders, Hired, etc.
 - Source: Provided by Luke Barousse course
-- Fields: Job Title, Country, Employment Type, Median Salary, Job Platform, and Job Count
+- Fields: Job Title, Job Platform, Schedule Type, Job Location, Country, Posted Date, Employment Type, Year Average and Skills.
 
-**Tools Used:** Microsoft Excel - XLOOKUP, AVERAGEIFS, MEDIAN, Data Validation (Dropdown), Bing Maps Chart, Bar Charts
+**Tools Used:** Microsoft Excel - XLOOKUP, COUNTIF, MEDIAN, SORT, Data Validation (Dropdown), Bing Maps Chart, Bar Charts
 
 **What I Learned:**
 - How to structure raw data for a calculator dashboard
@@ -29,17 +29,28 @@
 This is a fully dynamic dashboard. When you select a value, everything updates.
 
 **1. Job Title Filter (Left Chart)**
+
+<img width="554" height="346" alt="3_Left_Chart" src="https://github.com/user-attachments/assets/5bab955f-681d-4450-aa1d-e260a41bbdfc" />
+
+
 - Bar chart comparing median salary across 10 roles
 - The selected title is highlighted in dark blue
 - Insight: Senior Data Scientist is the highest paid at $155K in this filter
 
 **2. Country Map (Middle - Powered by Bing)**
+
+<img width="591" height="333" alt="4_Middle_Chart" src="https://github.com/user-attachments/assets/bfd54586-b77f-47f4-9c94-1c93dd8f0f06" />
+
+
 - Visual map showing salary distribution by country
-- Selected country: United States
 - Insight: US, Brazil, Australia, and EU countries dominate high-paying roles
 
 **3. Employment Type (Right Chart)**
-- Comparison between Internship, Full-time, Part-time, Temp, Contractor
+
+<img width="617" height="329" alt="5_Right_Chart" src="https://github.com/user-attachments/assets/d9884667-6d87-4fe0-ba08-01267a5ebf66" />
+
+
+- Comparison between Internship, Full-time, Part-time, Temporary Work, Contractor
 - Calculated with *FILTER()* function to excludes entries containing "and", coma and zero values.
   ```
   =FILTER(J2#;NOT(ISNUMBER(SEARCH("and";J2#)))*(J2#<>0))
@@ -47,7 +58,7 @@ This is a fully dynamic dashboard. When you select a value, everything updates.
 - Insight: Internship shows surprisingly high avg due to big-tech outliers, but Full-time is the most stable high-payer
 
 **KPIs at Bottom:**
-- **Median Salary:** $155,000 - Calculated with:
+- **Median Salary:** Returns the median salary based on job title, country, and type specified. Calculated with:
     ```
   =MEDIAN(
   IF(
@@ -59,15 +70,17 @@ This is a fully dynamic dashboard. When you select a value, everything updates.
   )
   )
   ```
-- **Top Job Platform:** Ladders - Most listings for this role
-- **Job Count:** 1,437 - Number of jobs matching the filter
+- **Top Job Platform:** Shows the most job platform from the list, calculated with *SORT()* function.
+- **Job Count:** Show the number of jobs matching the filter, calculated with:  
+  ```
+  =XLOOKUP(title;D2:D11;E2:E11;"No Results")
+  ```
+  <img width="433" height="239" alt="2_XLOOKUP_function" src="https://github.com/user-attachments/assets/86cc85ad-ba0a-4174-a14f-fb764316d2a2" />
+
 
 ---
 
 ### Chapter 3: Conclusion
-
-**Key Takeaway:** 
-Senior roles in the US as Full-time employees command the highest median salary, but the market is global. This dashboard helps anyone quickly benchmark their offer.
 
 **Challenges I Solved:**
 - Handling blank salary fields with IFERROR
