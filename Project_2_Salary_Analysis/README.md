@@ -54,7 +54,7 @@ I created 4 analysis sheets using Pivot Tables + DAX:
     
   and grouping for US and Non-US countries by using *CALCULATE()* funtion
      
-  `Median Salary Non-US = CALCULATE([Median Salary];data_jobs_salary[job_country]<>"United States")`
+  `Median Salary Non-US = CALCULATE([Median Salary]; data_jobs_salary[job_country] <> "United States")`
   
 - Insight: Both Senior Data Engineer and Data Scientist reach higher median salary both in US and internationally.
   <img width="753" height="289" alt="7_Median_Salary_US_Vs_NonUS" src="https://github.com/user-attachments/assets/5a00e16f-324d-493e-a0ad-b1a45f15c460" />
@@ -87,7 +87,7 @@ I created 4 analysis sheets using Pivot Tables + DAX:
 Data cleaning is 70% of the work. By using Power Query to unpivot skills and creating a relationship with job_id, I could answer complex questions that are impossible with normal Excel formulas.
 
 **Challenges I Solved:**
-- Unpivoting 15+ skill columns into clean rows
+- Unpivoting 180+ skill columns into clean rows
 - Understanding why to load to Data Model vs. Worksheet
 - Writing my first DAX measures for median, calculate and crossfilter
 - Using relationships instead of VLOOKUP
