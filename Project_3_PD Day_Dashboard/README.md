@@ -1,5 +1,7 @@
 # Canada Professional Development Day Analysis 2026/2027
 
+### 🔗 Live File: [View Excel Workbook](3_PD Day_Dashboard.xlsx)
+
 ## 📖 Introduction
 This project is part of my work as a freelance Data Analyst.
 
