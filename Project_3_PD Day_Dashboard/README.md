@@ -55,6 +55,8 @@ My shortlisted dates with best balance:
 
 ## 📊 Dashboard & Final Recommendation
 
+<img width="961" height="342" alt="23_PD Day_Dashboard" src="https://github.com/user-attachments/assets/c9c0cdce-b814-48d6-855f-b9c3d1e6fd22" />
+
 I built an interactive dashboard in Excel to help the client decide.
 
 **Key Metrics:**
@@ -84,4 +86,5 @@ This date maximizes both attendance and national representation.
 ## 💡 What I Learned
 This project taught me the full cycle: Web Research -> Messy Entry Data -> ETL with Power Query (Unpivot Column) -> Pivot Analysis -> Storytelling with Dashboard. And that the highest number is not always the best answer - distribution matters.
 
-
+---
+*Project by Septia Dara Pratiwi | From Semarang, Indonesia | Aspiring Data Analyst*
