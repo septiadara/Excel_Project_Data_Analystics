@@ -44,21 +44,56 @@ Initial finding - Top 10 most frequent PD dates:
 
 But when I broke it down by Province or Territory, I found a problem: these Top 10 dates were concentrated in only 3-5 provinces (mostly Alberta, British Columbia, Quebec, and Ontario). That doesn't meet the client's goal of a *cross-Canada* conference.
 
+What I'm looking for is "Best Date = the date that appears in the MOST different provinces". So, here is the step:
+
+**STEP 1: Build Data Model**  
+I am using first Excel: PD Days_Date.xlsx consists of Province, School and Date. The second Excel: PD Days_School Name.xlsx consists of Province and School, transformed it with Power Query by removing duplicates on School.
+
+**STEP 2: Relationship**  
+<img width="544" height="214" alt="25_Relationships" src="https://github.com/user-attachments/assets/c6401d22-c6cc-4548-92db-50a1f8894796" />
+
+- Left Data = Fact Table (with * ) = many rows, duplicates allowed
+- Right School Name = Dimension Table (with 1) = unique schools only
+- Line connecting Schools to Schools = Relationship
+
+**STEP 3: DAX and Power Pivot**  
+What I need to count:
+- Distinct Provinces: counts how many different provinces have PD on that date (e.g., 5 provinces = 5, not 20 schools from Quebec only)
+- Rank Best Date: ranks all dates by that count — Rank 1 = the date that is spread across Canada widest, not just centered in AB/ON/QC.
+
+But, because the Relationship is ONE-WAY, so we need CROSSFILTER to keep Province in dimension, but tell DAX to filter both ways just for this measure:
+```
+Distinct Province = CALCULATE(DISTINCTCOUNT('School Name'[Province]);CROSSFILTER(Data[Schools];'School Name'[Schools];Both))
+```
+And count Total PD Day
+```
+Total PD Day = COUNTROWS(Data)
+```
+And Rank Best Date
+```
+Rank Best Date = RANKX(ALL(Data[Date]);[Distinc Province]; ;DESC;Dense)
+```
+
+**STEP 4: Add Visual Pivot Chart**  
+Built a pivot table by dragging Dates into Rows, and Distinct Province, Total PD Day and Rank Best Date into Values. Sorted the date into top 20 and insert a Scatter Chart.
+<img width="1954" height="1215" alt="26_Scatter_Chart" src="https://github.com/user-attachments/assets/46c83e27-b898-4395-ae42-ba59241009f4" />
+
+**Insight:**
+Far right 🔴, 16 April 2027 is the most national with 8 provinces and 54 schools
+Far top 🔵, 23 October 2026 is the highest volume with 6 provinces and 99 schools
+
 So I expanded to Top 20 and looked for a better balance between:
 1.  High number of eligible schools
 2.  Wide geographic distribution (10 provinces + 3 territories)
 
 My shortlisted dates with best balance:
-- **20 November 2026 (73 schools)** - distributed across 6+ regions including Northwest Territories & New Brunswick
 - **16 April 2027 (54 schools)** - 8 regions including Prince Edward Island, Northwest Territories, Nunavut
+- **20 November 2026 (73 schools)** - distributed across 6+ regions including Northwest Territories & New Brunswick
 - **19 February 2027 (47 schools)** - 7 regions from East to West
 
 **Decision:** Instead of just taking the Top 10 by count, I combined high-frequency dates with dates that have broader provincial coverage. This ensures the conference can attract teachers from across Canada, not just a few provinces.
 
 ## 📊 Dashboard & Final Recommendation
-
-<img width="961" height="342" alt="23_PD Day_Dashboard" src="https://github.com/user-attachments/assets/c9c0cdce-b814-48d6-855f-b9c3d1e6fd22" />
-
 I built an interactive dashboard in Excel to help the client decide.
 
 **Key Metrics:**
@@ -86,7 +121,7 @@ It fails the client's main goal: national participation.
 This date maximizes both attendance and national representation.
 
 ## 💡 What I Learned
-This project taught me the full cycle: Web Research -> Messy Entry Data -> ETL with Power Query (Unpivot Column) -> Pivot Analysis -> Storytelling with Dashboard. And that the highest number is not always the best answer - distribution matters.
+This project taught me the full cycle: Web Research -> Messy Entry Data -> ETL with Power Query (Unpivot Column) -> Data Modelling -> Relationship -> DAX Measure (DISTINCTCOUNT & RANKX) -> Storytelling with Dashboard. And that the highest number is not always the best answer - distribution matters.
 
 ---
 *Project by Septia Dara Pratiwi | From Semarang, Indonesia | Aspiring Data Analyst*
