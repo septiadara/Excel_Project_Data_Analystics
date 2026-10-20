@@ -19,7 +19,8 @@ Excel Power Query, Power Pivot, DAX, Pivot Charts, DEMNAS 8m, QGIS for slope cla
 •	Cleaned and standardized precipitation data in Power Query.  
 •	Added a conditional column to modify the month (1 to January, 2 to February, etc).  
 •	Changed column types (date to Date, year to Year).  
-•	Removed and reordered columns.  <img width="643" height="506" alt="1_Data Cleaning" src="https://github.com/user-attachments/assets/fe32fd72-d222-4ed8-9f84-32efb6aef182" />
+•	Removed and reordered columns.    
+<img width="643" height="506" alt="1_Data Cleaning" src="https://github.com/user-attachments/assets/fe32fd72-d222-4ed8-9f84-32efb6aef182" />
 
 #### 2. Data Modelling (Year as key)
 In a blank workbook, I connected some tables from all different data sources using Power Pivot to create a data model. After successfully bringing all the data into a data model, now I can define relationships between my tables. 
